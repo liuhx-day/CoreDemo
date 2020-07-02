@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <environment include="Development">
+        <link asp-href-include="~/css/*" asp-href-exclude="~/css/all.min.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" asp-href-include="~/css/all.min.css">
+    </environment>
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            @*处理缓存的问题  可能图片名不变，只有内容变了就行 根据图片的内容生成hash值*@
+            <img asp-append-version="true"  src="~/images/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            @ViewBag.Title
+        </a>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

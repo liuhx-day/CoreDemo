@@ -1,0 +1,32 @@
+﻿@using CoreDemo.Models
+@*@using CoreDemo.Settings
+@using Microsoft.Extensions.Options*@
+@model IEnumerable<Cinema>
+
+@*@inject IOptions<ConnectionOptions> options;*@
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">MovieCount</th>
+                    <th scope="col">@*@options.Value.DefaultConnection*@</th>
+
+                </tr>
+            </thead>
+            <tbody>@Html.DisplayForModel()</tbody>
+
+        </table>
+        <a asp-action="Add">添加</a>
+
+     
+
+        @*@await Component.InvokeAsync("MovieCount", new { cinemaId = 1 })*@
+        @*<vc:movie-count cinema-id="2"></vc:movie-count>*@
+    </div>
+</div>
